@@ -6,7 +6,7 @@
 }
 
 html {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
 }
 
@@ -18,6 +18,8 @@ body {
 section {
   height: 100vh;
   scroll-snap-align: center;
+  scroll-snap-align: center;
+  overflow: hidden;
 }
 
 a {
