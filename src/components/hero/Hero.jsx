@@ -70,7 +70,7 @@ const Hero = () => {
         Gospodar svemira i univerzuma bree
       </motion.div>
       <div className="imageContainer">
-        <img src="/hero.png" alt="" />
+        <img src="/ja.png" alt="" className="igor" />
       </div>
     </div>
   );
