@@ -22,7 +22,7 @@ const variants = {
 const Services = () => {
   const ref = useRef();
 
-  const isInView = useInView(ref, { margin: "-100px" });
+  // const isInView = useInView(ref, { margin: "-100px" });
 
   return (
     <motion.div
@@ -30,7 +30,7 @@ const Services = () => {
       variants={variants}
       initial="initial"
       ref={ref}
-      animate={isInView && "animate"}
+      animate={"animate"}
     >
       <motion.div className="textContainer" variants={variants}>
         <p>
@@ -57,7 +57,7 @@ const Services = () => {
       <motion.div className="listContainer" variants={variants}>
         <motion.div
           className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
+          whileHover={{ background: "rebeccapurple", color: "black" }}
         >
           <h2>Branding</h2>
           <p>
@@ -70,7 +70,7 @@ const Services = () => {
         </motion.div>
         <motion.div
           className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
+          whileHover={{ background: "rebeccapurple", color: "black" }}
         >
           <h2>Branding</h2>
           <p>
@@ -83,7 +83,7 @@ const Services = () => {
         </motion.div>
         <motion.div
           className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
+          whileHover={{ background: "rebeccapurple", color: "black" }}
         >
           <h2>Branding</h2>
           <p>
@@ -96,7 +96,7 @@ const Services = () => {
         </motion.div>
         <motion.div
           className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
+          whileHover={{ background: "rebeccapurple", color: "black" }}
         >
           <h2>Branding</h2>
           <p>
