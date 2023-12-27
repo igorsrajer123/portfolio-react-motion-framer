@@ -47,11 +47,15 @@ const Hero = () => {
           initial="initial"
           animate="animate"
         >
-          <motion.h2 variants={textVariants}>IGOR SRAJER</motion.h2>
-          <motion.h1 variants={textVariants}>Busitelj rupa</motion.h1>
+          <motion.h2 variants={textVariants}>IGOR ŠRAJER</motion.h2>
+          <motion.h1 variants={textVariants}>Software Engineer</motion.h1>
           <motion.div className="buttons" variants={textVariants}>
-            <motion.button>See the Latest Work</motion.button>
-            <motion.button>Contact Me!</motion.button>
+            <a href="#Experience">
+              <motion.button>See my project history</motion.button>
+            </a>
+            <a href="#Contact">
+              <motion.button>Contact Me!</motion.button>
+            </a>
           </motion.div>
           <motion.img
             animate="scrollButton"
@@ -60,6 +64,9 @@ const Hero = () => {
             variants={textVariants}
           />
         </motion.div>
+        <div className="imageContainer">
+          <img src="/ja.png" alt="" className="igor" />
+        </div>
       </div>
       <motion.div
         className="slidingTextContainer"
@@ -67,11 +74,8 @@ const Hero = () => {
         initial="initial"
         animate="animate"
       >
-        Gospodar svemira i univerzuma bree
+        Software Engineer
       </motion.div>
-      <div className="imageContainer">
-        <img src="/ja.png" alt="" className="igor" />
-      </div>
     </div>
   );
 };

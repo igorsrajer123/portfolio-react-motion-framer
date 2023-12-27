@@ -13,7 +13,7 @@ const Navbar = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
         >
-          Igor Srajer
+          Igor Šrajer
         </motion.span>
         <motion.div
           className="social"
@@ -21,17 +21,17 @@ const Navbar = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <a href="#">
-            <img src="/facebook.png" alt="Facebook Icon" />
+          <a href="https://www.linkedin.com/in/igor-srajer/">
+            <img src="/linkedin.png" alt="Linkedin Icon" />
           </a>
-          <a href="#">
+          <a href="https://www.instagram.com/srajer_7/">
             <img src="/instagram.png" alt="Instagram Icon" />
           </a>
-          <a href="#">
-            <img src="/youtube.png" alt="Youtube Icon" />
+          <a href="https://github.com/igorsrajer123/portfolio-react-motion-framer">
+            <img src="/github.png" alt="Github Icon" />
           </a>
-          <a href="#">
-            <img src="/dribbble.png" alt="Dribble Icon" />
+          <a href="https://www.facebook.com/igor.srajer.7">
+            <img src="/facebook.png" alt="Facebook Icon" />
           </a>
         </motion.div>
       </div>

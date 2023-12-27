@@ -11,8 +11,20 @@
     align-items: center;
     justify-content: space-between;
 
-    @include mobile {
+    @include large {
       justify-content: flex-end;
+    }
+
+    @include desktop {
+      justify-content: flex-end;
+    }
+
+    @include tabled {
+      justify-content: center;
+    }
+
+    @include mobile {
+      justify-content: center;
       margin-right: 20px;
     }
   }
@@ -20,7 +32,18 @@
   span {
     font-weight: bold;
 
+    @include tabled {
+      display: none;
+    }
+
     @include mobile {
+      display: none;
+    }
+
+    @include desktop {
+      display: none;
+    }
+    @include large {
       display: none;
     }
   }

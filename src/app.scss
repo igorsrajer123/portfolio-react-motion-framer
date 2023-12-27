@@ -45,16 +45,20 @@ a {
   }
 }
 
+@mixin large {
+  @media (max-width: 1560px) {
+    @content;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rebeccapurple;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: white;
 }

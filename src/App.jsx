@@ -5,27 +5,41 @@ import Navbar from "./components/navbar/Navbar";
 import Parallax from "./components/parallax/Parallax";
 import Portfolio from "./components/portfolio/Portfolio";
 import Services from "./components/services/Services";
+import { ToastContainer, toast } from "react-toastify";
 
 const App = () => {
+  toast.success("🦄 Wow so easy!", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  });
   return (
     <div>
-      <section id="Homepage">
+      <section id="About">
         <Navbar />
         <Hero />
       </section>
-      <section id="Services">
+      <section>
         <Parallax type="services" />
       </section>
-      <section>
+      <section id="Services">
         <Services />
       </section>
-      <section id="Portfolio">
+      <section>
         <Parallax type="portfolio" />
       </section>
-      <Portfolio />
+      <section id="Experience">
+        <Portfolio />
+      </section>
       <section id="Contact">
         <Contact />
       </section>
+      <ToastContainer />
     </div>
   );
 };

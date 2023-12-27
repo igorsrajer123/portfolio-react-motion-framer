@@ -6,7 +6,6 @@
   margin: auto;
   display: flex;
   align-items: center;
-  gap: 50px;
 
   @include mobile {
     width: 100%;
@@ -18,12 +17,13 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 50px;
 
     @include mobile {
       gap: 20px;
       text-align: center;
       align-items: center;
+      max-height: 350px;
     }
 
     h1 {
@@ -45,27 +45,15 @@
     position: relative;
 
     @include mobile {
-      padding: 50px;
+      padding: 25px;
       width: 100%;
-      // display: flex;
-      // background-color: red;
-      // flex-direction: column;
-      // justify-content: center;
-      // align-items: center;
     }
 
     .phoneSvg {
-      stroke: orange;
+      stroke: purple;
       position: absolute;
       margin: auto;
       z-index: -1;
-
-      // @include mobile {
-      //   // width: 100px;
-      //   // height: 100px;
-      //   background-color: red;
-      //   justify-content: center;
-      // }
     }
 
     form {
@@ -89,9 +77,11 @@
       button {
         padding: 20px;
         border: none;
-        background-color: orange;
+        background-color: rebeccapurple;
+        color: white;
         cursor: pointer;
         font-weight: 500;
+
         @include mobile {
           padding: 10px;
         }

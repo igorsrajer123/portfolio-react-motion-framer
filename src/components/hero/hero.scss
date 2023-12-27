@@ -10,14 +10,25 @@
     max-width: 1366px;
     height: 100%;
     margin: auto;
+    display: flex;
+
+    @include tabled {
+      flex-direction: column;
+    }
 
     .textContainer {
+      z-index: 5;
       width: 50%;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 40px;
+
+      @include tabled {
+        width: 100%;
+        align-items: center;
+      }
 
       @include mobile {
         height: 50%;
@@ -53,6 +64,7 @@
           font-weight: 300;
         }
       }
+
       img {
         width: 50px;
       }
@@ -60,9 +72,10 @@
   }
   .imageContainer {
     height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 
     .igor {
       -webkit-filter: drop-shadow(2px 1px 0 black)
@@ -72,14 +85,10 @@
       border-radius: 30%;
     }
 
-    @include mobile {
-      height: 50%;
+    @include tabled {
       width: 100%;
-      top: unset;
-      bottom: 0;
-      justify-content: center;
-      display: flex;
       align-items: center;
+      justify-content: center;
     }
 
     img {
@@ -97,5 +106,7 @@
     bottom: -120px;
     white-space: nowrap;
     color: #ffffff09;
+    z-index: 1;
+    cursor: default;
   }
 }
