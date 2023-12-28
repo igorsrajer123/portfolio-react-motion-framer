@@ -21,7 +21,7 @@ const Navbar = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <a href="https://www.linkedin.com/in/igor-srajer/">
+          <a href="https://www.linkedin.com/in/igor-srajer/" target="_newtab">
             <img src="/linkedin.png" alt="Linkedin Icon" />
           </a>
           <a href="https://www.instagram.com/srajer_7/">

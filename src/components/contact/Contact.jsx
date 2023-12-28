@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import "./contact.scss";
 import { motion, useInView } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const variants = {
   initial: {
@@ -22,14 +22,21 @@ const variants = {
 const Contact = () => {
   const ref = useRef();
   const formRef = useRef();
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   const isInView = useInView(ref, { margin: "-100px" });
 
   const sendEmail = (e) => {
     e.preventDefault();
 
+    toast.loading("Sending email...", {
+      position: toast.POSITION.TOP_CENTER,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
     emailjs
       .sendForm(
         "service_gokwha9",
@@ -37,74 +44,75 @@ const Contact = () => {
         formRef.current,
         "2eYDIwjMXQwdgKE4y"
       )
-      .then(
-        () => {
-          setSuccess(true);
-        },
-        () => {
-          setError(true);
-        }
-      );
+      .then(() => {
+        toast.dismiss();
+        toast.success("😍 Email successfully sent!", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      })
+      .catch(() => {
+        toast.dismiss();
+        toast.error("🤮 Failed to send email. Please try again later.", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      })
+      .finally(() => {
+        e.target.reset();
+      });
   };
 
-  useEffect(() => {
-    if (error) {
-      toast.success("Failed to send email. Please try again later.");
-    }
-
-    if (success) {
-      toast.success("🦄 Wow so easy!", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-    }
-  }, [error, success]);
-
   return (
-    <>
-      <motion.div
-        ref={ref}
-        className="contact"
-        variants={variants}
-        initial="initial"
-        whileInView="animate"
-      >
-        <motion.div className="textContainer" variants={variants}>
-          <motion.h1 variants={variants}>Let’s work together</motion.h1>
-          <motion.div className="item" variants={variants}>
-            <h2>Mail</h2>
-            <span>igorsrajer123@gmail.com</span>
-          </motion.div>
-          <motion.div className="item" variants={variants}>
-            <h2>Location</h2>
-            <span>Novi Sad, Serbia</span>
-          </motion.div>
-          <motion.div className="item" variants={variants}>
-            <h2>Phone</h2>
-            <span>+381692480872</span>
-          </motion.div>
+    <motion.div
+      ref={ref}
+      className="contact"
+      variants={variants}
+      initial="initial"
+      whileInView="animate"
+    >
+      <motion.div className="textContainer" variants={variants}>
+        <motion.h1 variants={variants}>Let’s work together</motion.h1>
+        <motion.div className="item" variants={variants}>
+          <h2>Mail</h2>
+          <span>igorsrajer123@gmail.com</span>
         </motion.div>
-        <div className="formContainer">
-          <motion.div
-            className="phoneSvg"
-            initial={{ opacity: 1 }}
-            whileInView={{ opacity: 0 }}
-            transition={{ delay: 3, duration: 1 }}
-          >
-            <svg width="450px" height="450px" viewBox="0 0 32.666 32.666">
-              <motion.path
-                strokeWidth={0.2}
-                fill="none"
-                initial={{ pathLength: 0 }}
-                animate={isInView && { pathLength: 1 }}
-                transition={{ duration: 5 }}
-                d="M28.189,16.504h-1.666c0-5.437-4.422-9.858-9.856-9.858l-0.001-1.664C23.021,4.979,28.189,10.149,28.189,16.504z
+        <motion.div className="item" variants={variants}>
+          <h2>Location</h2>
+          <span>Novi Sad, Serbia</span>
+        </motion.div>
+        <motion.div className="item" variants={variants}>
+          <h2>Phone</h2>
+          <span>+381692480872</span>
+        </motion.div>
+      </motion.div>
+      <div className="formContainer">
+        <motion.div
+          className="phoneSvg"
+          initial={{ opacity: 1 }}
+          whileInView={{ opacity: 0 }}
+          transition={{ delay: 3, duration: 1 }}
+        >
+          <svg width="450px" height="450px" viewBox="0 0 32.666 32.666">
+            <motion.path
+              strokeWidth={0.2}
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={isInView && { pathLength: 1 }}
+              transition={{ duration: 4 }}
+              d="M28.189,16.504h-1.666c0-5.437-4.422-9.858-9.856-9.858l-0.001-1.664C23.021,4.979,28.189,10.149,28.189,16.504z
             M16.666,7.856L16.665,9.52c3.853,0,6.983,3.133,6.981,6.983l1.666-0.001C25.312,11.735,21.436,7.856,16.666,7.856z M16.333,0
             C7.326,0,0,7.326,0,16.334c0,9.006,7.326,16.332,16.333,16.332c0.557,0,1.007-0.45,1.007-1.006c0-0.559-0.45-1.01-1.007-1.01
             c-7.896,0-14.318-6.424-14.318-14.316c0-7.896,6.422-14.319,14.318-14.319c7.896,0,14.317,6.424,14.317,14.319
@@ -117,24 +125,23 @@ const Contact = () => {
             c1.041,1.228,2.127,2.416,3.245,3.576l-0.006,0.004c0.031,0.031,0.063,0.06,0.095,0.09c0.03,0.031,0.059,0.062,0.088,0.095
             l0.006-0.006c1.16,1.118,2.535,2.765,4.769,4.255c4.703,3.141,8.312,2.264,10.438,1.098c3.67-2.021,5.312-6.338,5.312-9.719
             C32.666,7.326,25.339,0,16.333,0z"
-              />
-            </svg>
-          </motion.div>
-          <motion.form
-            ref={formRef}
-            onSubmit={sendEmail}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 4, duration: 1 }}
-          >
-            <input type="text" required placeholder="Name" name="name" />
-            <input type="email" required placeholder="Email" name="email" />
-            <textarea rows={8} placeholder="Message" name="message" />
-            <button>Submit</button>
-          </motion.form>
-        </div>
-      </motion.div>
-    </>
+            />
+          </svg>
+        </motion.div>
+        <motion.form
+          ref={formRef}
+          onSubmit={sendEmail}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 4, duration: 1 }}
+        >
+          <input type="text" required placeholder="Name" name="name" />
+          <input type="email" required placeholder="Email" name="email" />
+          <textarea rows={8} placeholder="Message" name="message" />
+          <button>Submit</button>
+        </motion.form>
+      </div>
+    </motion.div>
   );
 };
 
