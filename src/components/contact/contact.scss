@@ -39,6 +39,12 @@
     span {
       font-weight: 300;
     }
+
+    .contact-item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
   }
 
   .formContainer {
