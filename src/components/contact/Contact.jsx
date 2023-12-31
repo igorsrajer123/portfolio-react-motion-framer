@@ -5,6 +5,7 @@ import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
 import EmailIcon from "../../icons/EmailIcon";
 import LocationIcon from "../../icons/LocationIcon";
+import PhoneIcon from "../../icons/PhoneIcon";
 
 const variants = {
   initial: {
@@ -87,6 +88,7 @@ const Contact = () => {
     >
       <motion.div className="textContainer" variants={variants}>
         <motion.h1 variants={variants}>Let’s work together</motion.h1>
+
         <motion.div className="item" variants={variants}>
           <div className="contact-item">
             <EmailIcon />
@@ -94,15 +96,20 @@ const Contact = () => {
           </div>
           <span>igorsrajer123@gmail.com</span>
         </motion.div>
+
         <motion.div className="item" variants={variants}>
           <div className="contact-item">
             <LocationIcon />
-            <h2 style={{ marginLeft: "10px" }}>Location</h2>
+            <h2 style={{ marginLeft: "5px" }}>Location</h2>
           </div>
           <span>Novi Sad, Serbia</span>
         </motion.div>
+
         <motion.div className="item" variants={variants}>
-          <h2>Phone</h2>
+          <div className="contact-item">
+            <PhoneIcon />
+            <h2 style={{ marginLeft: "7px" }}>Phone</h2>
+          </div>
           <span>+381692480872</span>
         </motion.div>
       </motion.div>
